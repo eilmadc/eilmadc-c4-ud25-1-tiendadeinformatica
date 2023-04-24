@@ -96,4 +96,11 @@ public class Fabricante {
 	public void setArticulo(List<Articulo> articulo) {
 		this.articulo = articulo;
 	}
+
+	@Override
+	public String toString() {
+		return "Fabricante [codigo=" + codigo + ", nombre=" + nombre + ", articulo=" + articulo + "]";
+	}
+	
+	
 }

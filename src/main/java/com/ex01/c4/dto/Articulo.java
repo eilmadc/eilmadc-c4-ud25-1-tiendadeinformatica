@@ -109,15 +109,5 @@ public class Articulo {
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}
-
-
-	// ------------Methods----------------
-	@Override
-	public String toString() {
-		return "Articulo [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", fabricante=" + fabricante
-				+ "]";
-	}
-
-	
 	
 }
