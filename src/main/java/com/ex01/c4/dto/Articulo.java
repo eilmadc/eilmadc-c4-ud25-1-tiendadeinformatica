@@ -45,7 +45,6 @@ public class Articulo {
 	 * @param fabricante
 	 */
 	public Articulo(Long codigo, String nombre, Double precio, Fabricante fabricante) {
-		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.precio = precio;
@@ -53,6 +52,8 @@ public class Articulo {
 	}
 
 	// ------------Getters y Setters----------------
+
+
 	/**
 	 * @return the codigo
 	 */

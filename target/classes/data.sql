@@ -1,22 +1,22 @@
 
-//DROP TABLE IF EXISTS fabricantes;
+/*DROP TABLE IF EXISTS fabricantes;*/
 CREATE TABLE fabricantes (
-  CODIGO int NOT NULL,
-  NOMBRE varchar(255) NOT NULL,
+  CODIGO int NOT NULL AUTO_INCREMENT,
+  NOMBRE varchar(255) DEFAULT NULL,
   PRIMARY KEY (CODIGO)
 );
 
-INSERT INTO fabricantes VALUES (1,'Sony'),(2,'Creative Labs'),(3,'Hewlett-Packard'),(4,'Iomega'),(5,'Fujitsu'),(6,'Winchester');
+INSERT INTO fabricantes(nombre) VALUES ('Sony'),('Creative Labs'),('Hewlett-Packard'),('Iomega'),('Fujitsu'),('Winchester');
 
 
-//DROP TABLE IF EXISTS articulos;
+/*DROP TABLE IF EXISTS articulos;*/
 CREATE TABLE articulos (
-  CODIGO int NOT NULL,
-  NOMBRE varchar(255) NOT NULL,
-  PRECIO decimal(10,0) NOT NULL,
-  FABRICANTE int NOT NULL,
+  CODIGO int NOT NULL AUTO_INCREMENT,
+  NOMBRE varchar(255) DEFAULT NULL,
+  PRECIO decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (CODIGO),
-  CONSTRAINT articulos_ibfk_1 FOREIGN KEY (FABRICANTE) REFERENCES fabricantes (CODIGO)
+  FABRICANTE int,
+   CONSTRAINT articulos_ibfk_1 FOREIGN KEY (FABRICANTE) REFERENCES fabricantes (CODIGO)
 );
 
-INSERT INTO articulos VALUES (1,'Hard drive',240,5),(2,'Memory',120,6),(3,'ZIP drive',150,4),(4,'Floppy disk',5,6),(5,'Monitor',240,1),(6,'DVD drive',180,2),(7,'CD drive',90,2),(8,'Printer',270,3),(9,'Toner cartridge',66,3),(10,'DVD burner',180,2);
+INSERT INTO articulos(nombre,precio,fabricante) VALUES ('Hard drive',240,5),('Memory',120,6),('ZIP drive',150,4),('Floppy disk',5,6),('Monitor',240,1),('DVD drive',180,2),('CD drive',90,2),('Printer',270,3),('Toner cartridge',66,3),('DVD burner',180,2);

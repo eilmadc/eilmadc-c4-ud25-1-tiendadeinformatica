@@ -5,8 +5,11 @@ package com.ex01.c4.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,22 +34,19 @@ public class Fabricante {
 
 	@OneToMany
 	@JoinColumn(name = "codigo")
-	private List<Fabricante> fabricante;
+	private List<Articulo> articulo;
 
 	// ------------Constructors----------------
 	public Fabricante() {
 	}
 
 	/**
-	 * @param id
+	 * @param codigo
 	 * @param nombre
-	 * @param fabricante
 	 */
-	public Fabricante(Long codigo, String nombre, List<Fabricante> fabricante) {
-		super();
+	public Fabricante(Long codigo, String nombre) {
 		this.codigo = codigo;
 		this.nombre = nombre;
-		this.fabricante = fabricante;
 	}
 
 	// ------------Getters y Setters----------------
@@ -80,23 +80,20 @@ public class Fabricante {
 	}
 
 	/**
-	 * @return the fabricante
+	 * @return articulo
 	 */
-	public List<Fabricante> getFabricante() {
-		return fabricante;
+
+	
+	@JsonIgnore 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Articulo")
+	public List<Articulo> getArticulo() {
+		return articulo;
 	}
 
 	/**
 	 * @param fabricante the fabricante to set
 	 */
-	public void setFabricante(List<Fabricante> fabricante) {
-		this.fabricante = fabricante;
+	public void setArticulo(List<Articulo> articulo) {
+		this.articulo = articulo;
 	}
-
-	// ------------Methods----------------
-	@Override
-	public String toString() {
-		return "Fabricante [codigo=" + codigo + ", nombre=" + nombre + ", fabricante=" + fabricante + "]";
-	}
-
 }
